@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-08-06T13:51:18.622Z",
+  "__export_date": "2021-08-06T14:15:00.304Z",
   "__export_source": "insomnia.desktop.app:v2021.3.0",
   "resources": [
     {
@@ -125,7 +125,7 @@
     {
       "_id": "req_a5d2ece2ba8f42d38a4f9546cd8a1269",
       "parentId": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
-      "modified": 1628257767137,
+      "modified": 1628259144191,
       "created": 1628257706761,
       "url": "{{ _.base_url }}",
       "name": "create",
@@ -144,7 +144,62 @@
         }
       ],
       "authentication": {},
-      "metaSortKey": -1621966454638.5,
+      "metaSortKey": -1623788379379.9375,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_667ab6749baa4f7397a10a6cdd4cce44",
+      "parentId": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
+      "modified": 1628259205357,
+      "created": 1628259126397,
+      "url": "{{ _.base_url }}/123",
+      "name": "update",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"brand\": \"Buddy Brew\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_ba1b880d884840cbb74ed5dbab3f27c1"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1623528104416.875,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_744a573bca5548f0a94ad98e704e6cab",
+      "parentId": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
+      "modified": 1628259152162,
+      "created": 1628259134523,
+      "url": "{{ _.base_url }}/123",
+      "name": "remove",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1623007554490.75,
       "isPrivate": false,
       "settingStoreCookies": true,
       "settingSendCookies": true,
