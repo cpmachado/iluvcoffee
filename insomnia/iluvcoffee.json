@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-08-06T01:44:44.440Z",
+  "__export_date": "2021-08-06T01:54:10.482Z",
   "__export_source": "insomnia.desktop.app:v2021.3.0",
   "resources": [
     {
@@ -59,10 +59,10 @@
     {
       "_id": "req_ea2077f28441471d93fff86c3c3f008f",
       "parentId": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
-      "modified": 1628214224159,
+      "modified": 1628214763028,
       "created": 1628213519930,
       "url": "{{ _.base_url }}",
-      "name": "base",
+      "name": "findAll",
       "description": "",
       "method": "GET",
       "body": {},
@@ -98,6 +98,29 @@
       },
       "metaSortKey": -1628213144559,
       "_type": "request_group"
+    },
+    {
+      "_id": "req_922a1c754b534a819392ee45a0b2ad4f",
+      "parentId": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
+      "modified": 1628214770860,
+      "created": 1628214737283,
+      "url": "{{ _.base_url }}/123",
+      "name": "findOne",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1624048654343,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
     },
     {
       "_id": "env_4fbc6f715fe3404abdfc0148e2225e62",
