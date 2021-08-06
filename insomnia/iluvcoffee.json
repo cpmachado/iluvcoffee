@@ -1,15 +1,15 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-08-06T01:28:57.509Z",
+  "__export_date": "2021-08-06T01:44:44.440Z",
   "__export_source": "insomnia.desktop.app:v2021.3.0",
   "resources": [
     {
       "_id": "req_f8ede4a8eaf5460bbd4ef2efc80d7241",
       "parentId": "fld_ea4fa18c29f04953b0e5c99825f02e77",
-      "modified": 1628213255196,
+      "modified": 1628214108587,
       "created": 1628213053752,
-      "url": "http://{{ _.base_url }}:{{ _.port }}",
+      "url": "{{ _.base_url }}",
       "name": "base",
       "description": "",
       "method": "GET",
@@ -30,12 +30,19 @@
     {
       "_id": "fld_ea4fa18c29f04953b0e5c99825f02e77",
       "parentId": "wrk_d5c17f1f574d47eab692cc53c9bfe560",
-      "modified": 1628213235915,
+      "modified": 1628214148653,
       "created": 1628213144609,
       "name": "base",
       "description": "",
-      "environment": { "base_url": "localhost", "port": 3000 },
-      "environmentPropertyOrder": { "&": ["base_url", "port"] },
+      "environment": {
+        "base_url": "{{ _.protocol }}://{{ _.base_host }}:{{ _.base_port }}",
+        "protocol": "http",
+        "base_host": "localhost",
+        "base_port": 3000
+      },
+      "environmentPropertyOrder": {
+        "&": ["base_url", "protocol", "base_host", "base_port"]
+      },
       "metaSortKey": -1628213144609,
       "_type": "request_group"
     },
@@ -48,6 +55,49 @@
       "description": "",
       "scope": "collection",
       "_type": "workspace"
+    },
+    {
+      "_id": "req_ea2077f28441471d93fff86c3c3f008f",
+      "parentId": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
+      "modified": 1628214224159,
+      "created": 1628213519930,
+      "url": "{{ _.base_url }}",
+      "name": "base",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1628213053752,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
+      "parentId": "wrk_d5c17f1f574d47eab692cc53c9bfe560",
+      "modified": 1628214212107,
+      "created": 1628213519927,
+      "name": "coffees",
+      "description": "",
+      "environment": {
+        "base_url": "{{ _.protocol }}://{{ _.base_host }}:{{ _.base_port }}/{{ _.base_path }}",
+        "protocol": "http",
+        "base_host": "localhost",
+        "base_port": 3000,
+        "base_path": "coffees"
+      },
+      "environmentPropertyOrder": {
+        "&": ["base_url", "protocol", "base_host", "base_port", "base_path"]
+      },
+      "metaSortKey": -1628213144559,
+      "_type": "request_group"
     },
     {
       "_id": "env_4fbc6f715fe3404abdfc0148e2225e62",
