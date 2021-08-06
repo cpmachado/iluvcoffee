@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-08-06T14:15:00.304Z",
+  "__export_date": "2021-08-06T14:38:51.251Z",
   "__export_source": "insomnia.desktop.app:v2021.3.0",
   "resources": [
     {
@@ -59,14 +59,27 @@
     {
       "_id": "req_ea2077f28441471d93fff86c3c3f008f",
       "parentId": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
-      "modified": 1628214763028,
+      "modified": 1628260685454,
       "created": 1628213519930,
       "url": "{{ _.base_url }}",
       "name": "findAll",
       "description": "",
       "method": "GET",
       "body": {},
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "limit",
+          "value": "20",
+          "description": "",
+          "id": "pair_50196e4d280d49f6aefe869ea3039d7d"
+        },
+        {
+          "name": "offset",
+          "value": "10",
+          "description": "",
+          "id": "pair_59bfda3d76974d629c229896e4406f9f"
+        }
+      ],
       "headers": [],
       "authentication": {},
       "metaSortKey": -1628213053752,
