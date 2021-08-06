@@ -1,0 +1,85 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2021-08-06T01:28:57.509Z",
+  "__export_source": "insomnia.desktop.app:v2021.3.0",
+  "resources": [
+    {
+      "_id": "req_f8ede4a8eaf5460bbd4ef2efc80d7241",
+      "parentId": "fld_ea4fa18c29f04953b0e5c99825f02e77",
+      "modified": 1628213255196,
+      "created": 1628213053752,
+      "url": "http://{{ _.base_url }}:{{ _.port }}",
+      "name": "base",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1628213053752,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_ea4fa18c29f04953b0e5c99825f02e77",
+      "parentId": "wrk_d5c17f1f574d47eab692cc53c9bfe560",
+      "modified": 1628213235915,
+      "created": 1628213144609,
+      "name": "base",
+      "description": "",
+      "environment": { "base_url": "localhost", "port": 3000 },
+      "environmentPropertyOrder": { "&": ["base_url", "port"] },
+      "metaSortKey": -1628213144609,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_d5c17f1f574d47eab692cc53c9bfe560",
+      "parentId": null,
+      "modified": 1619800033039,
+      "created": 1619800033039,
+      "name": "NestJS Fundamentals Course",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_4fbc6f715fe3404abdfc0148e2225e62",
+      "parentId": "wrk_d5c17f1f574d47eab692cc53c9bfe560",
+      "modified": 1619800033042,
+      "created": 1619800033042,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1619799578891,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_567c0b688d784c8db3fbac6c98184b5c",
+      "parentId": "wrk_d5c17f1f574d47eab692cc53c9bfe560",
+      "modified": 1619800033049,
+      "created": 1619800033049,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_c15d407bd28540bd9e714a4482d2ec45",
+      "parentId": "wrk_d5c17f1f574d47eab692cc53c9bfe560",
+      "modified": 1619800033089,
+      "created": 1619800033060,
+      "fileName": "NestJS Fundamentals Course",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}
