@@ -1,4 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { CreateCoffeeDto } from './dto/create-coffee.dto';
+import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { Coffee } from './entities/coffee.entity';
 
 @Injectable()
@@ -26,11 +28,17 @@ export class CoffeesService {
     return coffee;
   }
 
-  create(createCoffeeDto: any): void {
-    this.coffees.push(createCoffeeDto);
+  create(createCoffeeDto: CreateCoffeeDto): void {
+    const id = this.coffees.reduce((acc, { id }) => Math.max(acc, id), 0) + 1;
+    const coffee: Coffee = {
+      ...createCoffeeDto,
+      id,
+    };
+
+    this.coffees.push(coffee);
   }
 
-  update(id: string, updateCoffeeDto: any): void {
+  update(id: string, updateCoffeeDto: UpdateCoffeeDto): void {
     const existingCoffee = this.findOne(id);
 
     if (existingCoffee) {
