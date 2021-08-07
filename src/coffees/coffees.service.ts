@@ -1,61 +1,49 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { Coffee } from './entities/coffee.entity';
 
 @Injectable()
 export class CoffeesService {
-  private coffees: Coffee[] = [
-    {
-      id: 1,
-      name: 'Shipwreck Roast',
-      brand: 'Buddy Brew',
-      flavors: ['chocolate', 'vanilla'],
-    },
-  ];
+  constructor(
+    @InjectModel(Coffee.name) private readonly coffeeModel: Model<Coffee>,
+  ) {}
 
-  findAll(): Coffee[] {
-    return this.coffees;
+  findAll(): Promise<Coffee[]> {
+    return this.coffeeModel.find().exec();
   }
 
-  findOne(id: string): Coffee {
-    const coffee = this.coffees.find((item) => item.id === +id);
+  async findOne(id: string): Promise<Coffee> {
+    const coffee = await this.coffeeModel.findOne({ _id: id }).exec();
 
     if (!coffee) {
-      throw new HttpException(`Coffee #${id} not found`, HttpStatus.NOT_FOUND);
+      throw new NotFoundException(`Coffee #${id} not found`);
     }
 
     return coffee;
   }
 
-  create(createCoffeeDto: CreateCoffeeDto): void {
-    const id = this.coffees.reduce((acc, { id }) => Math.max(acc, id), 0) + 1;
-    const coffee: Coffee = {
-      ...createCoffeeDto,
-      id,
-    };
-
-    this.coffees.push(coffee);
+  create(createCoffeeDto: CreateCoffeeDto): Promise<Coffee> {
+    const coffee = new this.coffeeModel(createCoffeeDto);
+    return coffee.save();
   }
 
-  update(id: string, updateCoffeeDto: UpdateCoffeeDto): void {
-    const existingCoffee = this.findOne(id);
+  async update(id: string, updateCoffeeDto: UpdateCoffeeDto): Promise<Coffee> {
+    const existingCoffee = await this.coffeeModel
+      .findOneAndUpdate({ _id: id }, { $set: updateCoffeeDto }, { new: true })
+      .exec();
 
-    if (existingCoffee) {
-      // Update coffee
-      Object.keys(existingCoffee).forEach((prop) => {
-        if (typeof updateCoffeeDto[prop] !== 'undefined') {
-          existingCoffee[prop] = updateCoffeeDto[prop];
-        }
-      });
+    if (!existingCoffee) {
+      throw new NotFoundException(`Coffee #${id} not found`);
     }
+
+    return existingCoffee;
   }
 
-  remove(id: string): void {
-    const coffeeIndex = this.coffees.findIndex((item) => item.id === +id);
-
-    if (coffeeIndex >= 0) {
-      this.coffees.splice(coffeeIndex, 1);
-    }
+  async remove(id: string): Promise<Coffee> {
+    const coffee = await this.findOne(id);
+    return coffee.remove();
   }
 }

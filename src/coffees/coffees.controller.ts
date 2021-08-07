@@ -21,23 +21,23 @@ export class CoffeesController {
 
   @Get()
   @HttpCode(HttpStatus.OK)
-  findAll(@Query() paginationQuery: any): Coffee[] {
+  async findAll(@Query() paginationQuery: any): Promise<Coffee[]> {
     const { limit = 20, offset = 0 } = paginationQuery;
-    const coffees = this.coffeesService.findAll();
+    const coffees = await this.coffeesService.findAll();
 
     return coffees.slice(offset, offset + limit);
   }
 
   @Get(':id')
   @HttpCode(HttpStatus.OK)
-  findOne(@Param('id') id: string): Coffee {
+  findOne(@Param('id') id: string): Promise<Coffee> {
     return this.coffeesService.findOne(id);
   }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  create(@Body() createCoffeeDto: CreateCoffeeDto): void {
-    this.coffeesService.create(createCoffeeDto);
+  create(@Body() createCoffeeDto: CreateCoffeeDto): Promise<Coffee> {
+    return this.coffeesService.create(createCoffeeDto);
   }
 
   @Patch(':id')
@@ -45,13 +45,13 @@ export class CoffeesController {
   update(
     @Param('id') id: string,
     @Body() updateCoffeeDto: UpdateCoffeeDto,
-  ): void {
-    this.coffeesService.update(id, updateCoffeeDto);
+  ): Promise<Coffee> {
+    return this.coffeesService.update(id, updateCoffeeDto);
   }
 
   @Delete(':id')
   @HttpCode(HttpStatus.OK)
-  remove(@Param('id') id: string): void {
-    this.coffeesService.remove(id);
+  remove(@Param('id') id: string): Promise<Coffee> {
+    return this.coffeesService.remove(id);
   }
 }
