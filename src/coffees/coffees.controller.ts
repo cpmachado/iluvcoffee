@@ -10,6 +10,7 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
 import { CoffeesService } from './coffees.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
@@ -21,11 +22,10 @@ export class CoffeesController {
 
   @Get()
   @HttpCode(HttpStatus.OK)
-  async findAll(@Query() paginationQuery: any): Promise<Coffee[]> {
-    const { limit = 20, offset = 0 } = paginationQuery;
-    const coffees = await this.coffeesService.findAll();
-
-    return coffees.slice(offset, offset + limit);
+  async findAll(
+    @Query() paginationQuery: PaginationQueryDto,
+  ): Promise<Coffee[]> {
+    return this.coffeesService.findAll(paginationQuery);
   }
 
   @Get(':id')
