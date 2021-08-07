@@ -8,8 +8,8 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "format": "prettier --write \"{src,test}/**/*.ts\" insomnia/*.json",
-    "format:check": "prettier --check \"{src,test}/**/*.ts\" insomnia/*.json",
+    "format": "prettier --write \"{src,test}/**/*.ts\" *.js insomnia/*.json",
+    "format:check": "prettier --check \"{src,test}/**/*.ts\" *.js insomnia/*.json",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
