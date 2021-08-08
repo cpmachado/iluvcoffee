@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2021-08-06T22:14:03.605Z",
+  "__export_date": "2021-08-08T12:36:09.263Z",
   "__export_source": "insomnia.desktop.app:v2021.3.0",
   "resources": [
     {
@@ -59,7 +59,7 @@
     {
       "_id": "req_ea2077f28441471d93fff86c3c3f008f",
       "parentId": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
-      "modified": 1628263968344,
+      "modified": 1628344260551,
       "created": 1628213519930,
       "url": "{{ _.base_url }}",
       "name": "findAll",
@@ -69,15 +69,16 @@
       "parameters": [
         {
           "name": "limit",
-          "value": "20",
+          "value": "1",
           "description": "",
-          "id": "pair_d8372372576a455685e4c224e0f058b9"
+          "id": "pair_6bec21848b66411f93a6210c0ea33b5e"
         },
         {
           "name": "offset",
-          "value": "0",
+          "value": "1",
           "description": "",
-          "id": "pair_170bc3f90cce43969e2a1596b511e8c0"
+          "id": "pair_75ea237aeee14b6691c0bcd1201199b0",
+          "disabled": true
         }
       ],
       "headers": [],
@@ -138,7 +139,7 @@
     {
       "_id": "req_a5d2ece2ba8f42d38a4f9546cd8a1269",
       "parentId": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
-      "modified": 1628281610133,
+      "modified": 1628288242889,
       "created": 1628257706761,
       "url": "{{ _.base_url }}",
       "name": "create",
@@ -146,7 +147,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"id\": 2,\n\t\"name\": \"Old World Roast\",\n\t\"brand\": \"Serious Brew\",\n\t\"flavors\": [\"bitter\"]\n}"
+        "text": "{\n\t\"name\": \"Old World Roast\",\n\t\"brand\": \"Serious Brew\",\n\t\"flavors\": [\"bitter\"]\n}"
       },
       "parameters": [],
       "headers": [
@@ -202,9 +203,9 @@
     {
       "_id": "req_744a573bca5548f0a94ad98e704e6cab",
       "parentId": "fld_48ca3c52a3864d13b00648fb8f8a0f98",
-      "modified": 1628263959583,
+      "modified": 1628300114491,
       "created": 1628259134523,
-      "url": "{{ _.base_url }}/2",
+      "url": "{{ _.base_url }}/5",
       "name": "remove",
       "description": "",
       "method": "DELETE",
